@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ayo Keliling Tata Surya - Media Pembelajaran Interaktif</title>
+  <meta name="description" content="Media pembelajaran interaktif tata surya: simulasi orbit, perbandingan planet, perjalanan antariksa, kuis, dan game.">
+  <meta name="theme-color" content="#070826">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lock">
+
+  <canvas id="bgStars" aria-hidden="true"></canvas>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <!-- ================= LAYAR PEMBUKA ================= -->
+  <div id="intro" class="intro">
+    <div class="intro-card">
+      <div class="intro-orbit" aria-hidden="true">
+        <span class="io-sun"></span>
+        <span class="io-ring r1"><i></i></span>
+        <span class="io-ring r2"><i></i></span>
+        <span class="io-ring r3"><i></i></span>
+      </div>
+      <h1>Ayo keliling tata surya</h1>
+      <p>Naik ke pesawat antariksa, kunjungi setiap planet, kumpulkan bintang, dan buktikan kamu bisa jadi astronot terbaik.</p>
+      <div class="intro-actions">
+        <button id="btnStart" class="btn primary big" data-nosfx>Mulai petualangan</button>
+        <button id="btnStartMute" class="btn ghost" data-nosfx>Masuk tanpa musik</button>
+      </div>
+      <p class="intro-tip">Pakai headphone dan nyalakan suara agar lebih seru.</p>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="topbar">
+    <a href="#beranda" class="brand" aria-label="Beranda">
+      <span class="brand-dot"></span><b>Tata Surya</b>
+    </a>
+    <nav id="nav" class="nav" aria-label="Menu utama">
+      <a href="#jelajah">Jelajah</a>
+      <a href="#bandingkan">Bandingkan</a>
+      <a href="#perjalanan">Perjalanan</a>
+      <a href="#timbangan">Timbangan</a>
+      <a href="#kuis">Kuis</a>
+      <a href="#game">Game</a>
+    </nav>
+    <div class="hud">
+      <span class="hud-item" title="Bintang yang kamu kumpulkan">⭐ <b id="starCount">0</b></span>
+      <span class="hud-item" title="Benda langit yang sudah dijelajahi">🔭 <b id="expCount">0</b>/10</span>
+    </div>
+    <button id="navToggle" class="icon-btn" aria-label="Buka menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <!-- ================= BERANDA ================= -->
+    <section id="beranda" class="hero">
+      <div class="hero-text">
+        <h1>Ayo keliling<br>tata surya</h1>
+        <p class="lead">Satu Matahari, delapan planet, ratusan bulan, dan jutaan batuan angkasa. Sentuh, putar, zoom, dan pelajari semuanya dari layar ini.</p>
+        <div class="hero-actions">
+          <a href="#jelajah" class="btn primary big">Mulai jelajah</a>
+          <a href="#kuis" class="btn ghost big">Langsung kuis</a>
+        </div>
+        <ul class="hero-facts">
+          <li><b>1</b> bintang</li>
+          <li><b>8</b> planet</li>
+          <li><b>6</b> aktivitas seru</li>
+        </ul>
+      </div>
+
+      <div class="mini-system" aria-hidden="true">
+        <div class="mini-sun pl-ico" style="--c:#ffb32b"><img src="assets/img/matahari.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div>
+
+        <div class="mini-orbit o1" style="--t:9s"><div class="mini-planet pl-ico" style="--c:#b1a79d;--k:.05"><img src="assets/img/merkurius.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div></div>
+        <div class="mini-orbit o2" style="--t:15s"><div class="mini-planet pl-ico" style="--c:#e8c07a;--k:.07"><img src="assets/img/venus.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div></div>
+        <div class="mini-orbit o3" style="--t:23s"><div class="mini-planet pl-ico" style="--c:#3b82f6;--k:.075"><img src="assets/img/bumi.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div></div>
+        <div class="mini-orbit o4" style="--t:34s"><div class="mini-planet pl-ico" style="--c:#e0603a;--k:.06"><img src="assets/img/mars.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div></div>
+        <div class="mini-orbit o5" style="--t:70s"><div class="mini-planet pl-ico" style="--c:#d9a066;--k:.15"><img src="assets/img/jupiter.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div></div>
+
+        <img class="astronaut" src="assets/img/astronot.png" alt="" onerror="this.outerHTML='<span class=&quot;astronaut emoji&quot;>🧑‍🚀</span>'">
+      </div>
+    </section>
+
+    <!-- ================= TUJUAN & ISTILAH ================= -->
+    <section id="tujuan" class="section">
+      <div class="sec-head">
+        <h2>Yang akan kamu pelajari</h2>
+        <p>Setelah menyelesaikan semua aktivitas, kamu akan mampu:</p>
+      </div>
+      <div class="goals">
+        <article class="goal glass">
+          <span class="goal-ico">🔭</span>
+          <h3>Mengenal anggota tata surya</h3>
+          <p>Menyebutkan Matahari, planet, satelit, dan sabuk asteroid beserta urutannya.</p>
+        </article>
+        <article class="goal glass">
+          <span class="goal-ico">📊</span>
+          <h3>Membandingkan planet</h3>
+          <p>Membandingkan ukuran, jarak, suhu, dan lama satu tahun setiap planet.</p>
+        </article>
+        <article class="goal glass">
+          <span class="goal-ico">🌍</span>
+          <h3>Memahami gerak dan gravitasi</h3>
+          <p>Menjelaskan rotasi, revolusi, dan mengapa berat badan berbeda di tiap planet.</p>
+        </article>
+      </div>
+
+      <h3 class="mini-title">Istilah penting (ketuk kartu untuk membalik)</h3>
+      <div class="flips">
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah rotasi"><div class="flip-in">
+          <div class="flip-f"><span>🔄</span><b>Rotasi</b></div>
+          <div class="flip-b">Perputaran planet pada porosnya. Rotasi menyebabkan siang dan malam.</div>
+        </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah revolusi"><div class="flip-in">
+          <div class="flip-f"><span>☀️</span><b>Revolusi</b></div>
+          <div class="flip-b">Peredaran planet mengelilingi Matahari. Satu kali putaran penuh adalah satu tahun.</div>
+        </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah orbit"><div class="flip-in">
+          <div class="flip-f"><span>⭕</span><b>Orbit</b></div>
+          <div class="flip-b">Lintasan yang dilalui suatu benda langit saat mengelilingi benda lain.</div>
+        </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah satelit"><div class="flip-in">
+          <div class="flip-f"><span>🌙</span><b>Satelit</b></div>
+          <div class="flip-b">Benda yang mengorbit planet. Bulan adalah satelit alami Bumi.</div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- ================= JELAJAH (SIMULASI) ================= -->
+    <section id="jelajah" class="section">
+      <div class="sec-head">
+        <h2>Jelajahi tata surya</h2>
+        <p>Klik planet untuk terbang mendekat. Geser layar untuk menggeser, scroll atau tombol + / − untuk zoom.</p>
+      </div>
+
+      <div class="explore">
+        <div class="sim-col">
+          <div class="sim-toolbar">
+            <button id="btnPlay" class="btn small" title="Jeda atau lanjutkan">⏸ Jeda</button>
+            <label class="speed" title="Kecepatan simulasi">
+              <span>🐢</span>
+              <input type="range" id="speedRange" min="0.2" max="5" step="0.1" value="1" aria-label="Kecepatan simulasi">
+              <span>🐇</span>
+              <b id="speedVal">1×</b>
+            </label>
+            <button id="btnOrbit" class="btn small toggle on">Orbit</button>
+            <button id="btnLabel" class="btn small toggle on">Nama</button>
+            <button id="btnTilt" class="btn small toggle on">Miring 3D</button>
+            <button id="btnZoomOut" class="btn small" aria-label="Perkecil">−</button>
+            <button id="btnZoomIn" class="btn small" aria-label="Perbesar">+</button>
+            <button id="btnReset" class="btn small accent">🔭 Lihat semua</button>
+          </div>
+
+          <div class="sim-wrap">
+            <canvas id="simCanvas" aria-label="Simulasi tata surya interaktif"></canvas>
+            <div class="sim-note">Ukuran dan jarak tidak sesuai skala agar semua planet terlihat.</div>
+          </div>
+
+          <div class="chip-bar" id="chipBar" aria-label="Pilih benda langit"></div>
+        </div>
+
+        <aside class="info-panel glass" id="infoPanel" aria-live="polite">
+          <div class="info-top">
+            <div id="infoIcon" class="info-icon"></div>
+            <div>
+              <span id="infoTag" class="tag"></span>
+              <h3 id="infoName"></h3>
+            </div>
+          </div>
+          <p id="infoDesc" class="info-desc"></p>
+          <div id="infoStats" class="stats"></div>
+          <div class="fact-box">
+            <span class="fact-ico">💡</span>
+            <p id="infoFact"></p>
+          </div>
+          <div class="info-actions">
+            <button id="btnPrev" class="btn small" aria-label="Sebelumnya">◀</button>
+            <button id="btnFact" class="btn small">🎲 Fakta lain</button>
+            <button id="btnSpeak" class="btn small accent">🔊 Dengarkan</button>
+            <button id="btnNext" class="btn small" aria-label="Berikutnya">▶</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= BANDINGKAN ================= -->
+    <section id="bandingkan" class="section">
+      <div class="sec-head">
+        <h2>Adu planet</h2>
+        <p>Pilih satu kategori, lalu lihat planet mana yang paling besar, jauh, panas, atau lama tahunnya.</p>
+      </div>
+      <div class="tabs" id="metricTabs" role="tablist"></div>
+      <div class="glass bars" id="bars"></div>
+      <p class="note" id="metricNote"></p>
+    </section>
+
+    <!-- ================= PERJALANAN ================= -->
+    <section id="perjalanan" class="section">
+      <div class="sec-head">
+        <h2>Berapa lama sampai di sana?</h2>
+        <p>Pilih tujuan, lihat waktu tempuhnya dengan mobil, pesawat, dan roket, lalu adu kecepatan mereka.</p>
+      </div>
+      <div class="glass travel">
+        <div class="chip-bar" id="destBar"></div>
+        <p class="dist-line">Jarak terdekat dari Bumi: <b id="distVal"></b></p>
+        <div class="vehicle-grid" id="vehicleGrid"></div>
+
+        <div class="race">
+          <div class="race-head">
+            <h4>Balapan menuju <span id="raceDest"></span></h4>
+            <button id="btnRace" class="btn primary">🏁 Mulai balapan</button>
+          </div>
+          <div id="lanes"></div>
+          <p class="note" id="raceNote">Anggap roket tiba di tujuan. Lihat sejauh apa kendaraan lain pada saat yang sama.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TIMBANGAN ================= -->
+    <section id="timbangan" class="section">
+      <div class="sec-head">
+        <h2>Timbangan antariksa</h2>
+        <p>Massamu tidak berubah, tetapi beratmu bergantung pada gravitasi. Coba timbang dirimu di planet lain.</p>
+      </div>
+      <div class="glass weight">
+        <div class="weight-in">
+          <label for="wRange">Berat badanmu di Bumi: <b id="wVal">40</b> kg</label>
+          <input type="range" id="wRange" min="10" max="120" value="40">
+          <div class="chip-bar wrap" id="wBar"></div>
+        </div>
+        <div class="weight-out">
+          <div id="wIcon" class="w-icon"></div>
+          <p class="w-label">Berat badanmu di <b id="wPlanet">Bumi</b></p>
+          <div class="w-num"><span id="wNum">40</span><small>kg</small></div>
+          <p id="wInfo" class="w-info"></p>
+          <p id="wJump" class="w-jump"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KUIS ================= -->
+    <section id="kuis" class="section">
+      <div class="sec-head">
+        <h2>Kuis astronot</h2>
+        <p>Jawab 10 pertanyaan. Setiap jawaban benar memberi 10 bintang, dan tiga benar berturut-turut memberi bonus.</p>
+      </div>
+      <div class="glass quiz" id="quizBox"></div>
+    </section>
+
+    <!-- ================= GAME ================= -->
+    <section id="game" class="section">
+      <div class="sec-head">
+        <h2>Susun orbit planet</h2>
+        <p>Ketuk planet sesuai urutan dari yang paling dekat dengan Matahari. Secepat dan seteliti mungkin!</p>
+      </div>
+      <div class="glass game">
+        <div class="game-top">
+          <span class="g-stat">⏱ <b id="gameTime">0,0</b> detik</span>
+          <span class="g-stat">❌ <b id="gameMiss">0</b> salah</span>
+          <span class="g-stat">🏅 Terbaik: <b id="gameBest">-</b></span>
+          <span class="spacer"></span>
+          <button id="btnHint" class="btn small">💡 Petunjuk</button>
+          <button id="btnGameReset" class="btn small">🔄 Ulangi</button>
+        </div>
+        <div class="sun-row">
+          <div class="gsun pl-ico" style="--c:#ffb32b"><img src="assets/img/matahari.png" alt="Matahari" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()"></div>
+          <div id="slots" class="slots"></div>
+        </div>
+        <div id="pool" class="pool"></div>
+        <div id="gameResult" class="result" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Media pembelajaran interaktif tata surya. Data diameter, jarak, dan suhu dibulatkan untuk kebutuhan belajar.</p>
+    <button id="btnResetProgress" class="link-btn" data-nosfx>Hapus progres dan mulai dari awal</button>
+  </footer>
+
+  <!-- ================= PENGATUR SUARA ================= -->
+  <div class="audio-dock" role="group" aria-label="Pengaturan suara">
+    <button id="btnMusic" class="dock-btn" title="Musik latar" aria-label="Musik latar" data-nosfx>🎵</button>
+    <button id="btnSfx" class="dock-btn" title="Efek suara" aria-label="Efek suara" data-nosfx>🔔</button>
+    <input type="range" id="volRange" min="0" max="1" step="0.05" value="0.4" aria-label="Volume musik">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
