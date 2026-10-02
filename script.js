@@ -62,7 +62,7 @@ const BODIES = [
     desk: 'Merkurius adalah planet terkecil dan paling dekat dengan Matahari. Permukaannya penuh kawah seperti Bulan dan hampir tidak punya atmosfer.',
     stats: [['Diameter', '4.879 km'], ['Jarak dari Matahari', '57,9 juta km'], ['Revolusi (1 tahun)', '88 hari'], ['Rotasi (1 hari)', '58,6 hari Bumi'], ['Suhu', '−180 s.d. 430 °C'], ['Satelit', '0'], ['Gravitasi', '0,38 × Bumi'], ['Atmosfer', 'Sangat tipis']],
     fakta: ['Satu tahun di Merkurius hanya 88 hari, tetapi satu hari siang-malamnya berlangsung sekitar 176 hari Bumi.', 'Walau paling dekat Matahari, Merkurius bukan planet terpanas. Malam harinya bisa mencapai −180 °C.', 'Merkurius adalah planet yang bergerak paling cepat mengelilingi Matahari.'],
-    num: { diameter: 4879, jarak: 57.9, suhu: 167, tahun: 88, satelit: 0 }, jarakBumi: 77300000
+    num: { diameter: 4879, jarak: 57.9, suhu: 167, tahun: 88, satelit: 0 }, jarakBumi: 77300000, memo: 'Planet terkecil & paling cepat mengitari Matahari'
   },
   {
     id: 'venus', nama: 'Venus', tipe: 'Planet terestrial', color: '#e8c07a', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/venus.png',
@@ -70,7 +70,7 @@ const BODIES = [
     desk: 'Venus tampak sangat terang di langit pagi dan senja, sehingga dijuluki Bintang Kejora. Atmosfernya tebal penuh karbon dioksida, membuatnya menjadi planet terpanas.',
     stats: [['Diameter', '12.104 km'], ['Jarak dari Matahari', '108,2 juta km'], ['Revolusi (1 tahun)', '225 hari'], ['Rotasi (1 hari)', '243 hari (terbalik)'], ['Suhu', '± 465 °C'], ['Satelit', '0'], ['Gravitasi', '0,91 × Bumi'], ['Atmosfer', 'Karbon dioksida tebal']],
     fakta: ['Venus berotasi berlawanan arah dengan kebanyakan planet, jadi Matahari terbit dari barat.', 'Satu hari di Venus lebih lama daripada satu tahunnya.', 'Tekanan udara di permukaan Venus sekitar 90 kali tekanan udara di Bumi.'],
-    num: { diameter: 12104, jarak: 108.2, suhu: 464, tahun: 225, satelit: 0 }, jarakBumi: 38200000
+    num: { diameter: 12104, jarak: 108.2, suhu: 464, tahun: 225, satelit: 0 }, jarakBumi: 38200000, memo: 'Planet terpanas, rotasinya terbalik'
   },
   {
     id: 'bumi', nama: 'Bumi', tipe: 'Planet terestrial', color: '#3b82f6', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/earth.png',
@@ -78,7 +78,7 @@ const BODIES = [
     desk: 'Bumi adalah satu-satunya planet yang diketahui memiliki kehidupan. Sekitar 71% permukaannya tertutup air, dan atmosfernya melindungi kita dari radiasi berbahaya.',
     stats: [['Diameter', '12.742 km'], ['Jarak dari Matahari', '149,6 juta km'], ['Revolusi (1 tahun)', '365,25 hari'], ['Rotasi (1 hari)', '23 jam 56 menit'], ['Suhu rata-rata', '15 °C'], ['Satelit', '1 (Bulan)'], ['Gravitasi', '1 × Bumi'], ['Atmosfer', 'Nitrogen & oksigen']],
     fakta: ['Sumbu Bumi miring sekitar 23,5°, inilah penyebab pergantian musim.', 'Bumi mengelilingi Matahari dengan kecepatan sekitar 107.000 km/jam.', 'Bumi tidak bulat sempurna, melainkan sedikit pepat di kutub.'],
-    num: { diameter: 12742, jarak: 149.6, suhu: 15, tahun: 365, satelit: 1 }
+    num: { diameter: 12742, jarak: 149.6, suhu: 15, tahun: 365, satelit: 1 }, memo: 'Satu-satunya planet yang diketahui berkehidupan'
   },
   {
     id: 'bulan', nama: 'Bulan', tipe: 'Satelit alami Bumi', color: '#c9c9d1', img: 'assets/img/bulan.png',
@@ -93,7 +93,14 @@ const BODIES = [
     desk: 'Mars dijuluki Planet Merah karena permukaannya kaya besi oksida (karat). Di sini terdapat gunung berapi tertinggi di tata surya, Olympus Mons.',
     stats: [['Diameter', '6.779 km'], ['Jarak dari Matahari', '227,9 juta km'], ['Revolusi (1 tahun)', '687 hari'], ['Rotasi (1 hari)', '24 jam 37 menit'], ['Suhu rata-rata', '−63 °C'], ['Satelit', '2 (Phobos, Deimos)'], ['Gravitasi', '0,38 × Bumi'], ['Atmosfer', 'CO₂ tipis']],
     fakta: ['Olympus Mons setinggi sekitar 22 km, hampir 2,5 kali Gunung Everest.', 'Mars punya dua bulan kecil bernama Phobos dan Deimos.', 'Para ilmuwan menemukan bukti bahwa dahulu air pernah mengalir di permukaan Mars.'],
-    num: { diameter: 6779, jarak: 227.9, suhu: -65, tahun: 687, satelit: 2 }, jarakBumi: 54600000
+    num: { diameter: 6779, jarak: 227.9, suhu: -65, tahun: 687, satelit: 2 }, jarakBumi: 54600000, memo: 'Dijuluki Planet Merah'
+  },
+  {
+    id: 'ceres', nama: 'Ceres', tipe: 'Planet katai (terbesar di sabuk asteroid)', color: '#8f8a7c', img: 'assets/img/ceres.png',
+    orbit: 250, size: 3.2, imgFit: 1, focusZoom: 6, tahun: 4.6, gravity: 0.029, jarakBumi: 239000000,
+    desk: 'Ceres adalah benda terbesar di sabuk asteroid antara Mars dan Jupiter. Ditemukan tahun 1801, awalnya disebut planet, lalu asteroid, dan sejak 2006 resmi menjadi planet katai.',
+    stats: [['Diameter', '940 km'], ['Jarak dari Matahari', '414 juta km'], ['Revolusi (1 tahun)', '4,6 tahun'], ['Rotasi (1 hari)', '9 jam'], ['Gravitasi', '0,029 × Bumi'], ['Ditemukan', 'Tahun 1801']],
+    fakta: ['Ceres adalah objek pertama di sabuk asteroid yang ditemukan manusia.', 'Ceres menyimpan cukup banyak air es, bahkan diduga punya lautan bawah permukaan.', 'Pesawat luar angkasa Dawn milik NASA pernah mengorbit Ceres pada 2015–2018.']
   },
   {
     id: 'jupiter', nama: 'Jupiter', tipe: 'Raksasa gas', color: '#d9a066', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/jupiter.png',
@@ -101,7 +108,35 @@ const BODIES = [
     desk: 'Jupiter adalah planet terbesar di tata surya. Bintik Merah Besar di atmosfernya adalah badai raksasa yang sudah berlangsung ratusan tahun.',
     stats: [['Diameter', '139.820 km'], ['Jarak dari Matahari', '778,5 juta km'], ['Revolusi (1 tahun)', '11,9 tahun'], ['Rotasi (1 hari)', '9 jam 56 menit'], ['Suhu awan', '± −110 °C'], ['Satelit', '95+'], ['Gravitasi', '2,34 × Bumi'], ['Isi utama', 'Hidrogen & helium']],
     fakta: ['Massa Jupiter lebih dari dua kali massa seluruh planet lain digabung.', 'Bintik Merah Besar lebih lebar daripada Bumi.', 'Satu hari di Jupiter hanya sekitar 10 jam, tercepat di antara semua planet.'],
-    num: { diameter: 139820, jarak: 778.5, suhu: -110, tahun: 4333, satelit: 95 }, jarakBumi: 588000000
+    num: { diameter: 139820, jarak: 778.5, suhu: -110, tahun: 4333, satelit: 95 }, jarakBumi: 588000000, memo: 'Planet terbesar, punya Bintik Merah Besar'
+  },
+  {
+    id: 'io', nama: 'Io', tipe: 'Satelit alami Jupiter', color: '#e8d27a', img: 'assets/img/io.png',
+    orbit: 0, parent: 'jupiter', moonR: 42, moonSpeed: 3.2, size: 2.6, focusZoom: 9,
+    desk: 'Io adalah bulan Jupiter yang paling aktif secara vulkanik di tata surya, dengan ratusan gunung berapi yang terus meletus akibat tarikan gravitasi Jupiter yang sangat kuat.',
+    stats: [['Diameter', '3.643 km'], ['Jarak dari Jupiter', '± 422.000 km'], ['Revolusi', '1,8 hari'], ['Keunikan', 'Paling aktif vulkanik']],
+    fakta: ['Gunung berapi di Io bisa menyemburkan material hingga ratusan km ke angkasa.', 'Permukaan Io berwarna kuning-oranye karena belerang dari letusan vulkaniknya.', 'Io adalah salah satu dari 4 bulan Galileo yang ditemukan Galileo Galilei tahun 1610.']
+  },
+  {
+    id: 'europa', nama: 'Europa', tipe: 'Satelit alami Jupiter', color: '#d9c9b0', img: 'assets/img/europa.png',
+    orbit: 0, parent: 'jupiter', moonR: 52, moonSpeed: 2.5, size: 2.5, focusZoom: 9,
+    desk: 'Europa memiliki permukaan es yang halus dengan banyak retakan. Di bawah lapisan esnya diduga tersembunyi lautan air cair, menjadikannya salah satu tempat terbaik untuk mencari kehidupan di luar Bumi.',
+    stats: [['Diameter', '3.122 km'], ['Jarak dari Jupiter', '± 671.000 km'], ['Revolusi', '3,6 hari'], ['Keunikan', 'Diduga punya lautan bawah es']],
+    fakta: ['Lapisan es Europa diperkirakan menyembunyikan lautan dengan air dua kali lebih banyak dari semua lautan Bumi.', 'Permukaannya sangat halus, nyaris tanpa gunung atau kawah besar.', 'NASA berencana mengirim wahana Europa Clipper untuk mempelajarinya lebih dekat.']
+  },
+  {
+    id: 'ganymede', nama: 'Ganymede', tipe: 'Satelit alami Jupiter', color: '#a79c8c', img: 'assets/img/ganymede.png',
+    orbit: 0, parent: 'jupiter', moonR: 64, moonSpeed: 1.9, size: 3, focusZoom: 8,
+    desk: 'Ganymede adalah satelit alami terbesar di seluruh tata surya, bahkan lebih besar daripada planet Merkurius. Ganymede juga satu-satunya bulan yang diketahui memiliki medan magnetnya sendiri.',
+    stats: [['Diameter', '5.268 km'], ['Jarak dari Jupiter', '± 1,07 juta km'], ['Revolusi', '7,2 hari'], ['Keunikan', 'Bulan terbesar di tata surya']],
+    fakta: ['Ganymede lebih besar daripada planet Merkurius, meski massanya lebih ringan.', 'Ganymede punya medan magnet sendiri, hal yang tidak dimiliki bulan lain.', 'Di bawah permukaannya diduga juga tersembunyi lautan air asin.']
+  },
+  {
+    id: 'callisto', nama: 'Callisto', tipe: 'Satelit alami Jupiter', color: '#7d7265', img: 'assets/img/callisto.png',
+    orbit: 0, parent: 'jupiter', moonR: 80, moonSpeed: 1.3, size: 2.9, focusZoom: 7,
+    desk: 'Callisto adalah bulan Jupiter dengan permukaan paling penuh kawah di tata surya, menandakan permukaannya nyaris tidak berubah selama miliaran tahun.',
+    stats: [['Diameter', '4.821 km'], ['Jarak dari Jupiter', '± 1,88 juta km'], ['Revolusi', '16,7 hari'], ['Keunikan', 'Permukaan paling banyak kawah']],
+    fakta: ['Permukaan Callisto diperkirakan berumur hampir sama tuanya dengan tata surya itu sendiri.', 'Callisto adalah bulan Galileo yang jaraknya paling jauh dari Jupiter.', 'Permukaannya dipenuhi kawah tabrakan yang tak terhitung jumlahnya.']
   },
   {
     id: 'saturnus', nama: 'Saturnus', tipe: 'Raksasa gas', color: '#e6cf94', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/saturn.png',
@@ -109,7 +144,14 @@ const BODIES = [
     desk: 'Saturnus terkenal dengan cincinnya yang indah, tersusun dari jutaan bongkahan es dan batu. Planet gas raksasa ini sangat ringan untuk ukurannya.',
     stats: [['Diameter', '116.460 km'], ['Jarak dari Matahari', '1,43 miliar km'], ['Revolusi (1 tahun)', '29,4 tahun'], ['Rotasi (1 hari)', '10 jam 33 menit'], ['Suhu awan', '± −140 °C'], ['Satelit', '270+'], ['Gravitasi', '1,06 × Bumi'], ['Isi utama', 'Hidrogen & helium']],
     fakta: ['Massa jenis Saturnus lebih kecil daripada air. Andai ada bak air raksasa, Saturnus akan mengapung!', 'Cincin Saturnus lebarnya ratusan ribu km, tetapi tebalnya hanya sekitar 10 m sampai 1 km.', 'Titan, satelit terbesar Saturnus, memiliki atmosfer yang tebal.'],
-    num: { diameter: 116460, jarak: 1434, suhu: -140, tahun: 10759, satelit: 270 }, jarakBumi: 1200000000
+    num: { diameter: 116460, jarak: 1434, suhu: -140, tahun: 10759, satelit: 270 }, jarakBumi: 1200000000, memo: 'Terkenal dengan cincin megahnya'
+  },
+  {
+    id: 'titan', nama: 'Titan', tipe: 'Satelit alami Saturnus', color: '#e8b35a', img: 'assets/img/titan.png',
+    orbit: 0, parent: 'saturnus', moonR: 58, moonSpeed: 2.1, size: 3, focusZoom: 8,
+    desk: 'Titan adalah bulan terbesar Saturnus dan satu-satunya bulan di tata surya yang memiliki atmosfer tebal. Permukaannya bahkan punya sungai dan danau, tetapi berisi metana cair, bukan air.',
+    stats: [['Diameter', '5.150 km'], ['Jarak dari Saturnus', '± 1,2 juta km'], ['Revolusi', '16 hari'], ['Keunikan', 'Punya atmosfer & danau metana cair']],
+    fakta: ['Titan adalah satu-satunya bulan di tata surya yang memiliki atmosfer tebal seperti planet.', 'Di permukaannya ada danau dan sungai, tapi isinya metana dan etana cair, bukan air.', 'Wahana Huygens milik ESA pernah mendarat di permukaan Titan tahun 2005.']
   },
   {
     id: 'uranus', nama: 'Uranus', tipe: 'Raksasa es', color: '#7fd6e6', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/uranus.png',
@@ -117,7 +159,7 @@ const BODIES = [
     desk: 'Uranus adalah raksasa es berwarna biru kehijauan. Sumbunya miring hampir 98°, sehingga planet ini seolah berguling saat mengelilingi Matahari.',
     stats: [['Diameter', '50.724 km'], ['Jarak dari Matahari', '2,87 miliar km'], ['Revolusi (1 tahun)', '84 tahun'], ['Rotasi (1 hari)', '17 jam 14 menit'], ['Suhu awan', '± −195 °C'], ['Satelit', '28+'], ['Gravitasi', '0,92 × Bumi'], ['Isi utama', 'Hidrogen, helium, metana']],
     fakta: ['Uranus adalah planet pertama yang ditemukan dengan teleskop, oleh William Herschel pada 1781.', 'Satu musim di Uranus berlangsung sekitar 21 tahun Bumi.', 'Uranus juga punya cincin, tetapi tipis dan gelap.'],
-    num: { diameter: 50724, jarak: 2871, suhu: -195, tahun: 30687, satelit: 28 }, jarakBumi: 2580000000
+    num: { diameter: 50724, jarak: 2871, suhu: -195, tahun: 30687, satelit: 28 }, jarakBumi: 2580000000, memo: 'Berputar miring hampir menyamping'
   },
   {
     id: 'neptunus', nama: 'Neptunus', tipe: 'Raksasa es', color: '#4b6cf0', img: 'https://www.missionjuno.swri.edu/pub/n/images/planets/neptune.png',
@@ -125,7 +167,42 @@ const BODIES = [
     desk: 'Neptunus adalah planet terjauh dari Matahari. Warnanya biru pekat, dan angin di sana adalah yang tercepat di seluruh tata surya.',
     stats: [['Diameter', '49.244 km'], ['Jarak dari Matahari', '4,50 miliar km'], ['Revolusi (1 tahun)', '164,8 tahun'], ['Rotasi (1 hari)', '16 jam 6 menit'], ['Suhu awan', '± −200 °C'], ['Satelit', '16+'], ['Gravitasi', '1,19 × Bumi'], ['Isi utama', 'Hidrogen, helium, metana']],
     fakta: ['Kecepatan angin di Neptunus bisa mencapai sekitar 2.000 km/jam.', 'Neptunus ditemukan lewat perhitungan matematika sebelum terlihat teleskop, pada 1846.', 'Neptunus baru menyelesaikan satu putaran penuh sejak ditemukan pada tahun 2011.'],
-    num: { diameter: 49244, jarak: 4495, suhu: -200, tahun: 60190, satelit: 16 }, jarakBumi: 4300000000
+    num: { diameter: 49244, jarak: 4495, suhu: -200, tahun: 60190, satelit: 16 }, jarakBumi: 4300000000, memo: 'Terjauh dari Matahari, anginnya tercepat'
+  },
+  {
+    id: 'pluto', nama: 'Pluto', tipe: 'Planet katai', color: '#c9b6a3', img: 'assets/img/pluto.png',
+    orbit: 590, ecc: 0.25, size: 5, imgFit: 1, focusZoom: 6.5, tahun: 20, gravity: 0.063, jarakBumi: 4280000000,
+    desk: 'Pluto dianggap planet kesembilan sejak ditemukan tahun 1930, sampai akhirnya diklasifikasikan ulang menjadi planet katai pada 2006 karena orbitnya belum "membersihkan" lingkungan sekitarnya. Pluto punya 5 bulan, yang terbesar bernama Charon.',
+    stats: [['Diameter', '2.377 km'], ['Jarak rata-rata dari Matahari', '5,9 miliar km'], ['Revolusi (1 tahun)', '248 tahun'], ['Satelit', '5 (terbesar: Charon)'], ['Gravitasi', '0,063 × Bumi'], ['Suhu', '± −225 °C']],
+    fakta: ['Orbit Pluto cukup lonjong, kadang membuatnya lebih dekat ke Matahari daripada Neptunus.', 'Pluto dan bulannya Charon begitu berdekatan ukurannya sehingga sering disebut "planet ganda".', 'Sejak ditemukan tahun 1930, Pluto baru menyelesaikan sepertiga putaran mengelilingi Matahari.']
+  },
+  {
+    id: 'eris', nama: 'Eris', tipe: 'Planet katai (Sabuk Kuiper)', color: '#d8d2c6', img: 'assets/img/eris.png',
+    orbit: 640, ecc: 0.44, size: 4.6, focusZoom: 6.5, tahun: 24, gravity: 0.082,
+    desk: 'Eris adalah planet katai yang sangat jauh dan hampir seukuran Pluto. Penemuannya tahun 2005 justru menjadi alasan utama Pluto diklasifikasikan ulang menjadi planet katai.',
+    stats: [['Diameter', '2.326 km'], ['Jarak rata-rata dari Matahari', '± 10,1 miliar km'], ['Revolusi (1 tahun)', '± 558 tahun'], ['Ditemukan', 'Tahun 2005'], ['Gravitasi', '0,082 × Bumi']],
+    fakta: ['Penemuan Eris tahun 2005 memicu perdebatan yang akhirnya membuat Pluto direklasifikasi jadi planet katai.', 'Eris memiliki satu bulan bernama Dysnomia.', 'Eris adalah salah satu benda terjauh dan terdingin yang pernah diamati di tata surya.']
+  },
+  {
+    id: 'haumea', nama: 'Haumea', tipe: 'Planet katai (Sabuk Kuiper)', color: '#eef1f6', img: 'assets/img/haumea.png',
+    orbit: 615, ecc: 0.2, size: 3.6, focusZoom: 7, tahun: 15, gravity: 0.044,
+    desk: 'Haumea adalah planet katai dengan bentuk unik lonjong seperti bola rugbi, karena berputar sangat cepat pada porosnya hanya dalam waktu sekitar 4 jam.',
+    stats: [['Diameter', '± 1.632 x 1.178 km (lonjong)'], ['Rotasi', '± 4 jam (tercepat di tata surya)'], ['Revolusi (1 tahun)', '± 285 tahun'], ['Satelit', '2 (Hiʻiaka & Namaka)']],
+    fakta: ['Rotasi Haumea yang sangat cepat membuat bentuknya lonjong seperti bola rugbi, bukan bulat sempurna.', 'Haumea punya cincin tipis, hal langka untuk planet katai.', 'Haumea dinamai dari dewi kesuburan dan kelahiran dalam mitologi Hawaii.']
+  },
+  {
+    id: 'makemake', nama: 'Makemake', tipe: 'Planet katai (Sabuk Kuiper)', color: '#c99a6b', img: 'assets/img/makemake.png',
+    orbit: 625, ecc: 0.16, size: 3.8, focusZoom: 7, tahun: 18, gravity: 0.05,
+    desk: 'Makemake adalah planet katai terang kedua di Sabuk Kuiper setelah Pluto. Permukaannya tertutup es metana dan etana, membuatnya tampak kemerahan.',
+    stats: [['Diameter', '± 1.430 km'], ['Jarak rata-rata dari Matahari', '± 6,8 miliar km'], ['Revolusi (1 tahun)', '± 305 tahun'], ['Ditemukan', 'Tahun 2005']],
+    fakta: ['Makemake dinamai dari dewa pencipta manusia dalam kepercayaan masyarakat Pulau Paskah (Rapa Nui).', 'Permukaannya tertutup es metana yang membuatnya tampak kemerahan.', 'Makemake memiliki satu bulan kecil yang dijuluki "MK 2".']
+  },
+  {
+    id: 'komet', nama: 'Komet Halley', tipe: 'Komet periodik', color: '#bcd6e8', img: 'assets/img/komet.png',
+    orbit: 480, ecc: 0.85, size: 3, imgFit: 1, focusZoom: 4, tahun: 6, tailColor: '#cfeeff',
+    desk: 'Komet Halley adalah "bola salju kotor" dari es, debu, dan batu yang orbitnya sangat lonjong. Saat mendekati Matahari, panasnya membuat permukaan komet menguap dan membentuk ekor bercahaya yang selalu mengarah menjauhi Matahari.',
+    stats: [['Diameter inti', '± 15 km'], ['Periode orbit nyata', '± 76 tahun'], ['Terakhir terlihat', 'Tahun 1986'], ['Akan terlihat lagi', '± Tahun 2061'], ['Terdiri dari', 'Es, debu, dan batu'], ['Arah ekor', 'Selalu menjauhi Matahari']],
+    fakta: ['Komet Halley bisa dilihat dari Bumi dengan mata telanjang setiap sekitar 76 tahun sekali.', 'Komet ini dinamai dari astronom Edmond Halley, yang pertama memprediksi kemunculannya kembali.', 'Ekor komet tidak selalu di belakang arah geraknya, melainkan selalu menjauhi Matahari karena didorong angin matahari.']
   }
 ];
 const BY = Object.fromEntries(BODIES.map(b => [b.id, b]));
@@ -139,7 +216,7 @@ const icon = (b, cls = '') =>
 /* ---- Penyimpanan progres ---- */
 const store = {
   key: 'tataSuryaProgress_v1',
-  data: { stars: 0, explored: [], quizBest: 0, gameBest: null },
+  data: { stars: 0, explored: [], quizBest: 0, gameBest: null, memBest: null },
   load() { try { Object.assign(this.data, JSON.parse(localStorage.getItem(this.key) || '{}')); } catch (e) { /* abaikan */ } },
   save() { try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch (e) { /* abaikan */ } }
 };
@@ -282,15 +359,17 @@ Sound.preload();
 const Sim = (() => {
   const canvas = $('#simCanvas'), ctx = canvas.getContext('2d');
   let w = 0, h = 0, dpr = 1, last = performance.now(), items = [];
-  const S = { zoom: 1, zoomT: 1, off: { x: 0, y: 0 }, tilt: .5, tiltT: .5, speed: 1, paused: false, orbit: true, label: true, follow: null, recenter: false, hover: null, selected: 'bumi', beltA: 0 };
+  const S = { zoom: 1, zoomT: 1, off: { x: 0, y: 0 }, tilt: .5, tiltT: .5, speed: 1, paused: false, orbit: true, label: true, follow: null, recenter: false, hover: null, selected: 'bumi', beltA: 0, meteors: [] };
 
-  const sun = BY.matahari, moon = BY.bulan, earth = BY.bumi;
-  const planets = BODIES.filter(b => b.orbit > 0);
+  const sun = BY.matahari;
+  const planets = BODIES.filter(b => b.orbit > 0 && !b.parent);
+  const moons = BODIES.filter(b => b.parent);
   planets.forEach(p => { p.angle = rand(0, Math.PI * 2); });
-  moon.angle = 0;
+  moons.forEach(m => { m.angle = rand(0, Math.PI * 2); });
   BODIES.forEach(b => { b.image = new Image(); b.image.crossOrigin = 'anonymous'; b.image.referrerPolicy = 'no-referrer'; b.ready = false; b.image.onload = () => { b.ready = true; }; b.image.onerror = () => { b.ready = false; }; b.image.src = b.img; });
 
   const belt = Array.from({ length: 340 }, () => ({ a: rand(0, 6.283), r: rand(232, 268), s: rand(.6, 1.7), o: rand(.3, .85), v: rand(.7, 1.3) }));
+  const kuiperBelt = Array.from({ length: 220 }, () => ({ a: rand(0, 6.283), r: rand(605, 660), s: rand(.5, 1.4), o: rand(.2, .6), v: rand(.3, .7) }));
   const bgStars = Array.from({ length: 150 }, () => ({ x: Math.random(), y: Math.random(), r: rand(.3, 1.4), a: rand(.25, .9) }));
 
   function resize() {
@@ -307,15 +386,24 @@ const Sim = (() => {
   function worldPos(b, bs) {
     if (b === sun) return { x: 0, y: 0 };
     const z = S.zoom * bs;
-    if (b === moon) { const e = worldPos(earth, bs); return { x: e.x + Math.cos(moon.angle) * moon.moonR * z, y: e.y + Math.sin(moon.angle) * moon.moonR * z * S.tilt }; }
+    if (b.parent) { const p = worldPos(BY[b.parent], bs); return { x: p.x + Math.cos(b.angle) * b.moonR * z, y: p.y + Math.sin(b.angle) * b.moonR * z * S.tilt }; }
+    if (b.ecc) {
+      /* orbit elips: Matahari di salah satu fokus elips (persamaan polar fokus) */
+      const r = b.orbit * (1 - b.ecc * b.ecc) / (1 + b.ecc * Math.cos(b.angle));
+      return { x: Math.cos(b.angle) * r * z, y: Math.sin(b.angle) * r * z * S.tilt };
+    }
     return { x: Math.cos(b.angle) * b.orbit * z, y: Math.sin(b.angle) * b.orbit * z * S.tilt };
   }
 
   function update(dt) {
     if (!S.paused) {
       planets.forEach(p => { p.angle += .35 * S.speed * Math.pow(p.tahun, -.6) * dt; });
-      moon.angle += 1.7 * S.speed * dt;
+      moons.forEach(m => { m.angle += (m.moonSpeed || 1.7) * S.speed * dt; });
       S.beltA += .03 * S.speed * dt;
+    }
+    if (S.meteors.length) {
+      S.meteors.forEach(m => { m.x += m.vx * dt; m.y += m.vy * dt; m.life -= dt * .5; });
+      S.meteors = S.meteors.filter(m => m.life > 0);
     }
     S.zoom += (S.zoomT - S.zoom) * (1 - Math.exp(-dt * 6));
     S.tilt += (S.tiltT - S.tilt) * (1 - Math.exp(-dt * 5));
@@ -346,25 +434,52 @@ const Sim = (() => {
     if (S.orbit) {
       planets.forEach(p => {
         const sel = S.selected === p.id;
-        ctx.beginPath(); ctx.ellipse(cx, cy, p.orbit * z, p.orbit * z * tilt, 0, 0, 7);
+        ctx.beginPath();
+        if (p.ecc) {
+          const semiMajor = p.orbit * z, semiMinor = p.orbit * Math.sqrt(1 - p.ecc * p.ecc) * z * tilt, ox = -p.orbit * p.ecc * z;
+          ctx.ellipse(cx + ox, cy, semiMajor, semiMinor, 0, 0, 7);
+        } else {
+          ctx.ellipse(cx, cy, p.orbit * z, p.orbit * z * tilt, 0, 0, 7);
+        }
         ctx.strokeStyle = sel ? hexA(p.color, .85) : 'rgba(255,255,255,.13)'; ctx.lineWidth = sel ? 1.8 : 1; ctx.stroke();
       });
-      const ew = worldPos(earth, bs);
-      ctx.beginPath(); ctx.ellipse(cx + ew.x, cy + ew.y, moon.moonR * z, moon.moonR * z * tilt, 0, 0, 7);
-      ctx.strokeStyle = S.selected === 'bulan' ? 'rgba(201,201,209,.8)' : 'rgba(255,255,255,.14)'; ctx.lineWidth = 1; ctx.stroke();
+      moons.forEach(m => {
+        const pp = worldPos(BY[m.parent], bs);
+        ctx.beginPath(); ctx.ellipse(cx + pp.x, cy + pp.y, m.moonR * z, m.moonR * z * tilt, 0, 0, 7);
+        ctx.strokeStyle = S.selected === m.id ? hexA(m.color, .8) : 'rgba(255,255,255,.14)'; ctx.lineWidth = 1; ctx.stroke();
+      });
     }
 
-    /* sabuk asteroid */
+    /* sabuk asteroid & sabuk Kuiper */
     ctx.fillStyle = '#c8bfb3';
     belt.forEach(b => {
       const a = b.a + S.beltA * b.v;
       ctx.globalAlpha = b.o;
       ctx.beginPath(); ctx.arc(cx + Math.cos(a) * b.r * z, cy + Math.sin(a) * b.r * z * tilt, Math.max(.6, b.s * Math.min(S.zoom, 3) * .7), 0, 7); ctx.fill();
     });
+    ctx.fillStyle = '#9fc6d9';
+    kuiperBelt.forEach(b => {
+      const a = b.a + S.beltA * b.v;
+      ctx.globalAlpha = b.o;
+      ctx.beginPath(); ctx.arc(cx + Math.cos(a) * b.r * z, cy + Math.sin(a) * b.r * z * tilt, Math.max(.5, b.s * Math.min(S.zoom, 3) * .6), 0, 7); ctx.fill();
+    });
     ctx.globalAlpha = 1;
     if (S.label && S.zoom < 1.6) {
       ctx.font = '700 11px "Atkinson Hyperlegible", sans-serif'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(200,190,175,.65)';
       ctx.fillText('Sabuk asteroid', cx, cy - 268 * z * tilt - 8);
+      ctx.fillStyle = 'rgba(170,205,220,.6)';
+      ctx.fillText('Sabuk Kuiper', cx, cy - 632 * z * tilt - 8);
+    }
+
+    /* hujan meteor (dipicu tombol) */
+    if (S.meteors.length) {
+      ctx.save();
+      S.meteors.forEach(m => {
+        const g = ctx.createLinearGradient(m.x, m.y, m.x - m.vx * .12, m.y - m.vy * .12);
+        g.addColorStop(0, `rgba(255,255,255,${clamp(m.life, 0, 1)})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(m.x - m.vx * .12, m.y - m.vy * .12); ctx.stroke();
+      });
+      ctx.restore();
     }
 
     /* cahaya Matahari */
@@ -378,7 +493,7 @@ const Sim = (() => {
     /* kumpulkan semua benda, urutkan berdasarkan kedalaman (y) */
     const list = [{ b: sun, x: cx, y: cy, r: sr }];
     planets.forEach(p => { const wp = worldPos(p, bs); list.push({ b: p, x: cx + wp.x, y: cy + wp.y, r: Math.max(p.size * z, 4) }); });
-    const mw = worldPos(moon, bs); list.push({ b: moon, x: cx + mw.x, y: cy + mw.y, r: Math.max(moon.size * z, 2.5) });
+    moons.forEach(m => { const wp = worldPos(m, bs); list.push({ b: m, x: cx + wp.x, y: cy + wp.y, r: Math.max(m.size * z, 2.2) }); });
     list.sort((a, b) => a.y - b.y);
     items = list;
     list.forEach(it => drawBody(it, cx, cy, t));
@@ -386,6 +501,23 @@ const Sim = (() => {
 
   function drawBody({ b, x, y, r }, sx, sy, t) {
     const isSun = b === sun, sel = S.selected === b.id, hov = S.hover === b;
+
+    /* ekor komet: selalu menjauhi Matahari, memanjang saat dekat Matahari */
+    if (b.id === 'komet' && b.ecc) {
+      const peri = b.orbit * (1 - b.ecc), apo = b.orbit * (1 + b.ecc);
+      const rNow = b.orbit * (1 - b.ecc * b.ecc) / (1 + b.ecc * Math.cos(b.angle));
+      const closeness = clamp(1 - (rNow - peri) / (apo - peri), 0, 1);
+      const away = Math.atan2(y - sy, x - sx);
+      const tailLen = 16 + closeness * closeness * 130;
+      const tx = x + Math.cos(away) * tailLen, ty = y + Math.sin(away) * tailLen;
+      ctx.save();
+      const g = ctx.createLinearGradient(x, y, tx, ty);
+      g.addColorStop(0, hexA(b.tailColor || '#cfeeff', .75)); g.addColorStop(1, hexA(b.tailColor || '#cfeeff', 0));
+      ctx.strokeStyle = g; ctx.lineWidth = Math.max(2, r * .9); ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(tx, ty); ctx.stroke();
+      ctx.restore();
+    }
+
     ctx.save();
 
     /* cincin cadangan Saturnus (jika gambar belum ada) - bagian belakang */
@@ -424,10 +556,10 @@ const Sim = (() => {
     }
 
     /* label nama */
-    const showMoon = b !== moon || sel || hov || S.zoom > 2;
+    const showMoon = !b.parent || sel || hov || S.zoom > 2;
     if ((S.label || sel || hov) && showMoon) {
       ctx.save();
-      ctx.font = `700 ${b === moon ? 11 : 13}px "Atkinson Hyperlegible", sans-serif`; ctx.textAlign = 'center';
+      ctx.font = `700 ${b.parent ? 11 : 13}px "Atkinson Hyperlegible", sans-serif`; ctx.textAlign = 'center';
       ctx.shadowColor = 'rgba(0,0,0,.9)'; ctx.shadowBlur = 6;
       ctx.fillStyle = sel ? '#62e4ff' : 'rgba(255,255,255,.92)';
       const off = r * (b.id === 'saturnus' && b.ready ? 1.5 : 1) + 20;
@@ -502,7 +634,19 @@ const Sim = (() => {
     toggleOrbit() { S.orbit = !S.orbit; return S.orbit; },
     toggleLabel() { S.label = !S.label; return S.label; },
     toggleTilt() { S.tiltT = S.tiltT < .9 ? 1 : .5; return S.tiltT < .9; },
-    setSpeed(v) { S.speed = v; }
+    setSpeed(v) { S.speed = v; },
+    meteorShower(durasiMs = 5000, jumlah = 55) {
+      let sisa = jumlah;
+      const spawn = () => {
+        if (sisa <= 0) return;
+        sisa--;
+        const sx = rand(0, w), sy = rand(-40, h * .5), ang = rand(.9, 1.5);
+        S.meteors.push({ x: sx, y: sy, vx: Math.cos(ang) * rand(260, 420), vy: Math.sin(ang) * rand(260, 420), life: 1 });
+        setTimeout(spawn, rand(40, 160));
+      };
+      spawn();
+      return durasiMs;
+    }
   };
 })();
 
@@ -530,6 +674,17 @@ const Panel = (() => {
       u.onend = u.onerror = () => { Sound.duck(false); el.speak.textContent = '🔊 Dengarkan'; };
       speechSynthesis.speak(u);
     },
+    /* Dipakai mode tur otomatis: selalu memutar ulang (bukan toggle), memanggil onEnd saat narasi selesai */
+    speakAuto(onEnd) {
+      if (!('speechSynthesis' in window) || !cur) { onEnd && onEnd(); return; }
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(`${cur.nama}. ${cur.desk} Tahukah kamu? ${cur.fakta[0]}`);
+      u.lang = 'id-ID'; u.rate = .95;
+      u.onstart = () => { Sound.duck(true); el.speak.textContent = '⏹ Berhenti'; };
+      u.onend = u.onerror = () => { Sound.duck(false); el.speak.textContent = '🔊 Dengarkan'; onEnd && onEnd(); };
+      speechSynthesis.speak(u);
+    },
+    stopSpeak() { stopSpeech(); Sound.duck(false); el.speak.textContent = '🔊 Dengarkan'; },
     get cur() { return cur; }
   };
 })();
@@ -570,6 +725,37 @@ $('#btnTilt').addEventListener('click', e => e.currentTarget.classList.toggle('o
 $('#btnZoomIn').addEventListener('click', () => Sim.zoomBy(1.35));
 $('#btnZoomOut').addEventListener('click', () => Sim.zoomBy(1 / 1.35));
 $('#btnReset').addEventListener('click', () => { Sim.reset(); Sound.play('whoosh', .35); });
+$('#btnMeteor').addEventListener('click', () => { Sim.meteorShower(); toast('🌠 Hujan meteor dimulai, lihat ke simulasi!'); });
+
+/* ----- Tur otomatis ----- */
+const TOUR_STOPS = ['matahari', 'merkurius', 'venus', 'bumi', 'mars', 'ceres', 'jupiter', 'saturnus', 'uranus', 'neptunus', 'pluto', 'komet'];
+let tourTimer = null, tourSafety = null, tourRunning = false;
+function stopTour() {
+  if (!tourRunning) return;
+  tourRunning = false; clearTimeout(tourTimer); clearTimeout(tourSafety);
+  Panel.stopSpeak();
+  $('#btnTour').textContent = '🛰️ Mulai tur'; $('#btnTour').classList.remove('on');
+}
+function startTour() {
+  tourRunning = true; $('#btnTour').textContent = '⏹ Hentikan tur'; $('#btnTour').classList.add('on');
+  let i = 0;
+  const step = () => {
+    if (!tourRunning) return;
+    selectBody(TOUR_STOPS[i], { focus: true });
+    i = (i + 1) % TOUR_STOPS.length;
+    let moved = false;
+    const goNext = () => { if (moved || !tourRunning) return; moved = true; clearTimeout(tourSafety); tourTimer = setTimeout(step, 1200); };
+    /* beri waktu kamera terbang dulu sebelum mulai bicara, lalu tunggu narasi selesai */
+    tourTimer = setTimeout(() => { if (tourRunning) Panel.speakAuto(goNext); }, 1600);
+    /* jaring pengaman: kalau narasi gagal/tidak didukung, tetap lanjut setelah beberapa detik */
+    tourSafety = setTimeout(goNext, 16000);
+  };
+  step();
+}
+$('#btnTour').addEventListener('click', () => { tourRunning ? stopTour() : startTour(); });
+/* interaksi manual pada simulasi (geser/zoom) membatalkan tur otomatis */
+$('#simCanvas').addEventListener('pointerdown', () => stopTour());
+$('#chipBar').addEventListener('click', () => stopTour());
 $('#btnPrev').addEventListener('click', () => stepBody(-1));
 $('#btnNext').addEventListener('click', () => stepBody(1));
 $('#btnFact').addEventListener('click', () => Panel.nextFact());
@@ -725,11 +911,21 @@ const QUIZ = [
   { q: 'Peristiwa siang dan malam disebabkan oleh...', o: ['Revolusi Bumi', 'Rotasi Bumi', 'Gerhana Bulan', 'Revolusi Bulan'], a: 'Rotasi Bumi', e: 'Bumi berputar pada porosnya sehingga bagian yang menghadap Matahari mengalami siang.' },
   { q: 'Sabuk asteroid terletak di antara orbit planet...', o: ['Bumi dan Mars', 'Mars dan Jupiter', 'Jupiter dan Saturnus', 'Uranus dan Neptunus'], a: 'Mars dan Jupiter', e: 'Sabuk asteroid berisi jutaan batuan sisa pembentukan tata surya.' },
   { q: 'Matahari termasuk jenis benda langit apa?', o: ['Planet', 'Satelit', 'Bintang', 'Komet'], a: 'Bintang', e: 'Matahari adalah bintang yang memancarkan cahaya dan panasnya sendiri.' },
-  { q: 'Planet manakah yang paling jauh dari Matahari?', o: ['Uranus', 'Saturnus', 'Jupiter', 'Neptunus'], a: 'Neptunus', e: 'Neptunus berjarak sekitar 4,5 miliar km dari Matahari.' }
+  { q: 'Planet manakah yang paling jauh dari Matahari?', o: ['Uranus', 'Saturnus', 'Jupiter', 'Neptunus'], a: 'Neptunus', e: 'Neptunus berjarak sekitar 4,5 miliar km dari Matahari.' },
+  { q: 'Apa nama objek terbesar di sabuk asteroid antara Mars dan Jupiter?', o: ['Ceres', 'Pluto', 'Charon', 'Halley'], a: 'Ceres', e: 'Ceres adalah planet katai yang juga merupakan benda terbesar di sabuk asteroid.' },
+  { q: 'Komet terbuat dari apa?', o: ['Besi dan nikel murni', 'Es, debu, dan batu', 'Gas hidrogen saja', 'Batu granit padat'], a: 'Es, debu, dan batu', e: 'Komet sering disebut "bola salju kotor" karena tersusun dari es, debu, dan batu.' },
+  { q: 'Ke mana arah ekor komet saat mendekati Matahari?', o: ['Selalu menjauhi Matahari', 'Selalu ke arah Bumi', 'Selalu mengikuti arah geraknya', 'Selalu ke bawah'], a: 'Selalu menjauhi Matahari', e: 'Angin matahari mendorong gas dan debu komet sehingga ekornya selalu mengarah menjauhi Matahari.' },
+  { q: 'Apa sebutan untuk pecahan batu kecil di angkasa sebelum memasuki atmosfer Bumi?', o: ['Meteor', 'Meteorit', 'Meteoroid', 'Asteroid'], a: 'Meteoroid', e: 'Meteoroid adalah pecahan batu di angkasa; saat terbakar di atmosfer disebut meteor, dan jika sampai ke tanah disebut meteorit.' },
+  { q: 'Mengapa Pluto tidak lagi disebut planet sejak 2006?', o: ['Terlalu panas', 'Tidak punya satelit', 'Belum "membersihkan" orbitnya dari benda lain', 'Terlalu dekat Matahari'], a: 'Belum "membersihkan" orbitnya dari benda lain', e: 'Pluto diklasifikasikan ulang menjadi planet katai karena belum mendominasi lingkungan orbitnya sendiri.' },
+  { q: 'Berapa kira-kira periode orbit nyata Komet Halley mengelilingi Matahari?', o: ['1 tahun', '11 tahun', '76 tahun', '500 tahun'], a: '76 tahun', e: 'Komet Halley terlihat dari Bumi setiap sekitar 76 tahun sekali; terakhir terlihat tahun 1986.' },
+  { q: 'Apa nama satelit terbesar milik Pluto?', o: ['Titan', 'Charon', 'Europa', 'Phobos'], a: 'Charon', e: 'Charon begitu besar dibanding Pluto sehingga keduanya kadang disebut "planet ganda".' },
+  { q: 'Fenomena "bintang jatuh" yang kita lihat di langit malam sebenarnya adalah...', o: ['Bintang yang benar-benar jatuh', 'Meteoroid yang terbakar di atmosfer', 'Pecahan Bulan', 'Pesawat luar angkasa'], a: 'Meteoroid yang terbakar di atmosfer', e: 'Yang kita lihat sebagai "bintang jatuh" adalah meteor: meteoroid yang terbakar saat memasuki atmosfer Bumi.' },
+  { q: 'Tahun berapa Ceres pertama kali ditemukan?', o: ['1801', '1930', '1969', '1986'], a: '1801', e: 'Ceres ditemukan tahun 1801 dan menjadi objek pertama yang dikenali di sabuk asteroid.' },
+  { q: 'Benda langit manakah berikut ini yang memiliki orbit paling lonjong (eksentrik)?', o: ['Bumi', 'Venus', 'Komet Halley', 'Jupiter'], a: 'Komet Halley', e: 'Orbit Komet Halley sangat lonjong, membawanya dari dekat Matahari hingga jauh melewati Neptunus.' }
 ];
 const Quiz = (() => {
   const box = $('#quizBox'); let list, i, score, streak, answered;
-  function start() { list = shuffle(QUIZ); i = 0; score = 0; streak = 0; render(); }
+  function start() { list = shuffle(QUIZ).slice(0, Math.min(10, QUIZ.length)); i = 0; score = 0; streak = 0; render(); }
   function render() {
     answered = false; const q = list[i];
     box.innerHTML = `
@@ -831,6 +1027,95 @@ const Game = (() => {
   reset();
 })();
 
+/* ================= 8b. MEMORI (JODOHKAN PLANET & FAKTA) ================= */
+const Memory = (() => {
+  const wrap = $('#matchWrap'), leftCol = $('#matchLeft'), rightCol = $('#matchRight'), svg = $('#matchLines');
+  const res = $('#memResult'), bestEl = $('#memBest');
+  let selLeft = null, selRight = null, matchedIds = new Set(), miss = 0, t0 = 0, timer = null;
+  const showBest = () => { bestEl.textContent = store.data.memBest ? nf(store.data.memBest, 1) + ' dtk' : '-'; };
+
+  function tick() { $('#memTime').textContent = nf((Date.now() - t0) / 1000, 1); }
+  function reset() {
+    clearInterval(timer); selLeft = null; selRight = null; matchedIds = new Set(); miss = 0; t0 = 0;
+    res.hidden = true; res.innerHTML = '';
+    $('#memMiss').textContent = '0'; $('#memTime').textContent = '0,0'; $('#memMatched').textContent = '0'; $('#memTotal').textContent = PLANETS8.length;
+    const rightItems = shuffle(PLANETS8.map(p => ({ id: p.id, text: p.fakta[Math.floor(Math.random() * p.fakta.length)] })));
+    leftCol.innerHTML = PLANETS8.map(p => `<button type="button" class="match-item" data-id="${p.id}" data-side="l">${icon(p)}<span>${p.nama}</span></button>`).join('');
+    rightCol.innerHTML = rightItems.map(f => `<button type="button" class="match-item fact" data-id="${f.id}" data-side="r"><span>${f.text}</span></button>`).join('');
+    svg.innerHTML = '';
+    showBest();
+  }
+  function drawLine(a, b, id) {
+    const wr = wrap.getBoundingClientRect(), ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+    const x1 = ra.right - wr.left, y1 = ra.top + ra.height / 2 - wr.top;
+    const x2 = rb.left - wr.left, y2 = rb.top + rb.height / 2 - wr.top;
+    const mx = (x1 + x2) / 2;
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+    path.setAttribute('stroke', BY[id].color); path.setAttribute('stroke-width', '2.5');
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('opacity', '.85');
+    path.dataset.id = id;
+    svg.appendChild(path);
+  }
+  function redrawAllLines() {
+    svg.innerHTML = '';
+    matchedIds.forEach(id => {
+      const a = leftCol.querySelector(`[data-id="${id}"]`), b = rightCol.querySelector(`[data-id="${id}"]`);
+      if (a && b) drawLine(a, b, id);
+    });
+  }
+  function finish() {
+    clearInterval(timer); tick();
+    const sec = (Date.now() - t0) / 1000;
+    const isBest = !store.data.memBest || sec < store.data.memBest;
+    if (isBest) { store.data.memBest = sec; store.save(); }
+    showBest();
+    res.hidden = false;
+    res.innerHTML = `<h3>Semua planet berhasil dijodohkan 🎉</h3><p>Waktu: <b>${nf(sec, 1)} detik</b> &nbsp; Salah: <b>${miss}</b>${isBest ? '<br><b>Rekor baru!</b>' : ''}</p>`;
+    addStars(clamp(30 - miss * 2, 10, 30), 'Menjodohkan planet & fakta');
+    Confetti.burst(); Sound.play('selesai');
+  }
+  function tryMatch() {
+    if (!selLeft || !selRight) return;
+    if (!t0) { t0 = Date.now(); timer = setInterval(tick, 100); }
+    const a = selLeft, b = selRight, idL = a.dataset.id, idR = b.dataset.id;
+    if (idL === idR) {
+      Sound.play('benar', .5);
+      a.classList.remove('selected'); b.classList.remove('selected');
+      a.classList.add('matched', 'locked'); b.classList.add('matched', 'locked');
+      a.insertAdjacentHTML('beforeend', '<span class="check">✔</span>');
+      matchedIds.add(idL);
+      drawLine(a, b, idL);
+      $('#memMatched').textContent = matchedIds.size;
+      selLeft = null; selRight = null;
+      if (matchedIds.size === PLANETS8.length) finish();
+    } else {
+      miss++; $('#memMiss').textContent = miss; Sound.play('salah');
+      a.classList.add('wrong'); b.classList.add('wrong');
+      setTimeout(() => { a.classList.remove('wrong', 'selected'); b.classList.remove('wrong', 'selected'); }, 650);
+      selLeft = null; selRight = null;
+    }
+  }
+  function onClickItem(el) {
+    if (el.classList.contains('locked')) return;
+    if (el.dataset.side === 'l') {
+      if (selLeft === el) { el.classList.remove('selected'); selLeft = null; return; }
+      if (selLeft) selLeft.classList.remove('selected');
+      selLeft = el; el.classList.add('selected');
+    } else {
+      if (selRight === el) { el.classList.remove('selected'); selRight = null; return; }
+      if (selRight) selRight.classList.remove('selected');
+      selRight = el; el.classList.add('selected');
+    }
+    tryMatch();
+  }
+  leftCol.addEventListener('click', e => { const b = e.target.closest('.match-item'); if (b) onClickItem(b); });
+  rightCol.addEventListener('click', e => { const b = e.target.closest('.match-item'); if (b) onClickItem(b); });
+  $('#btnMemReset').addEventListener('click', reset);
+  let resizeT; window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(redrawAllLines, 150); });
+  reset();
+})();
+
 /* ----- Konfeti ----- */
 const Confetti = (() => {
   const c = $('#confetti'), x = c.getContext('2d'); let parts = [], run = false;
@@ -881,6 +1166,126 @@ const Confetti = (() => {
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+
+/* ================= 9. SERTIFIKAT ASTRONOT ================= */
+(() => {
+  const canvas = $('#certCanvas'), ctx = canvas.getContext('2d'), input = $('#certName'), dl = $('#certDownload'), note = $('#certNote');
+
+  /* ----- Fotobooth ----- */
+  const video = $('#certVideo'), preview = $('#certPhotoPreview'), placeholder = $('#photoPlaceholder');
+  const btnCamOpen = $('#btnCamOpen'), btnCamShot = $('#btnCamShot'), btnCamRetake = $('#btnCamRetake'), camNote = $('#camNote');
+  let camStream = null, photoImg = null;
+  async function openCam() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      camNote.textContent = 'Kamera tidak didukung peramban ini. Sertifikat tetap bisa dibuat tanpa foto.'; return;
+    }
+    try {
+      camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
+      video.srcObject = camStream; video.hidden = false; placeholder.hidden = true; preview.hidden = true;
+      btnCamOpen.hidden = true; btnCamShot.hidden = false; btnCamRetake.hidden = true;
+      camNote.textContent = 'Atur posisi supaya semua orang muat di bingkai lebar, lalu ambil foto. Di ponsel, miringkan layar agar hasilnya lebih lebar.';
+    } catch (e) {
+      camNote.textContent = 'Tidak bisa mengakses kamera (butuh izin pengguna & koneksi HTTPS). Sertifikat tetap bisa dibuat tanpa foto.';
+    }
+  }
+  function closeCam() { if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; } }
+  function takeShot() {
+    const vw = video.videoWidth, vh = video.videoHeight; if (!vw) return;
+    /* potong tengah video ke rasio landscape 16:9 supaya muat banyak orang */
+    const W = 1280, H = 720, ratio = W / H;
+    let sw = vw, sh = vw / ratio;
+    if (sh > vh) { sh = vh; sw = vh * ratio; }
+    const shot = document.createElement('canvas'); shot.width = W; shot.height = H;
+    const sctx = shot.getContext('2d');
+    sctx.translate(W, 0); sctx.scale(-1, 1); /* cerminkan biar seperti kaca saat selfie */
+    sctx.drawImage(video, (vw - sw) / 2, (vh - sh) / 2, sw, sh, 0, 0, W, H);
+    const url = shot.toDataURL('image/jpeg', .92);
+    preview.src = url; preview.hidden = false; video.hidden = true; placeholder.hidden = true;
+    btnCamShot.hidden = true; btnCamRetake.hidden = false;
+    photoImg = new Image(); photoImg.src = url;
+    closeCam();
+    camNote.textContent = 'Foto siap dipakai di sertifikat.';
+  }
+  function retake() {
+    preview.hidden = true; placeholder.hidden = false; photoImg = null;
+    btnCamRetake.hidden = true; btnCamOpen.hidden = false; camNote.textContent = '';
+  }
+  btnCamOpen.addEventListener('click', openCam);
+  btnCamShot.addEventListener('click', takeShot);
+  btnCamRetake.addEventListener('click', retake);
+
+  function wrapGradientBg() {
+    const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    g.addColorStop(0, '#12124a'); g.addColorStop(1, '#070826');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < 90; i++) { ctx.globalAlpha = rand(.2, .9); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(rand(0, canvas.width), rand(0, canvas.height), rand(.6, 2), 0, 7); ctx.fill(); }
+    ctx.globalAlpha = 1;
+  }
+  function rrect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+  }
+  function draw() {
+    const nama = (input.value || 'Astronot Cilik').trim();
+    const d = store.data;
+    const hasPhoto = !!(photoImg && photoImg.complete && photoImg.naturalWidth);
+    /* dengan foto, kanvas dibuat lebih tinggi agar foto landscape lebar muat di atas teks */
+    canvas.height = hasPhoto ? 860 : 700;
+    wrapGradientBg();
+    ctx.strokeStyle = '#ffc247'; ctx.lineWidth = 6; ctx.strokeRect(24, 24, canvas.width - 48, canvas.height - 48);
+    ctx.strokeStyle = 'rgba(255,194,71,.5)'; ctx.lineWidth = 2; ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+    /* posisi teks: tanpa foto = tata letak asli; dengan foto = lebih rapat di bawah foto */
+    const Y = hasPhoto
+      ? { head: 450, to: 488, name: 548, d1: 592, d2: 618, stars: 664, exp: 694, quiz: 720 }
+      : { head: 130, to: 190, name: 270, d1: 330, d2: 358, stars: 430, exp: 465, quiz: 492 };
+    if (hasPhoto) {
+      const pw = 600, ph = 338, px = (canvas.width - pw) / 2, py = 66;
+      const iw = photoImg.naturalWidth, ih = photoImg.naturalHeight, fr = pw / ph;
+      let sw = iw, sh = iw / fr; if (sh > ih) { sh = ih; sw = ih * fr; }
+      ctx.save();
+      ctx.shadowColor = 'rgba(255,194,71,.35)'; ctx.shadowBlur = 24;
+      rrect(px, py, pw, ph, 18); ctx.fillStyle = '#0c0c38'; ctx.fill();
+      ctx.restore();
+      ctx.save();
+      rrect(px, py, pw, ph, 18); ctx.clip();
+      ctx.drawImage(photoImg, (iw - sw) / 2, (ih - sh) / 2, sw, sh, px, py, pw, ph);
+      ctx.restore();
+      rrect(px, py, pw, ph, 18); ctx.strokeStyle = '#ffc247'; ctx.lineWidth = 5; ctx.stroke();
+    }
+    const cx = canvas.width / 2;
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#ffc247'; ctx.font = '700 28px "Atkinson Hyperlegible", sans-serif';
+    ctx.fillText('✦ SERTIFIKAT PENJELAJAH ANTARIKSA ✦', cx, Y.head);
+    ctx.fillStyle = '#eef1ff'; ctx.font = '400 20px "Atkinson Hyperlegible", sans-serif';
+    ctx.fillText('Diberikan kepada', cx, Y.to);
+    ctx.fillStyle = '#62e4ff'; ctx.font = '800 56px "Baloo 2", sans-serif';
+    ctx.fillText(nama, cx, Y.name);
+    ctx.fillStyle = '#eef1ff'; ctx.font = '400 20px "Atkinson Hyperlegible", sans-serif';
+    ctx.fillText('atas keberhasilannya menjelajahi tata surya,', cx, Y.d1);
+    ctx.fillText('menyelesaikan kuis astronot, dan menyusun orbit planet.', cx, Y.d2);
+    ctx.font = '700 22px "Atkinson Hyperlegible", sans-serif'; ctx.fillStyle = '#ffc247';
+    ctx.fillText(`⭐ ${nf(d.stars)} bintang dikumpulkan`, cx, Y.stars);
+    ctx.fillStyle = '#a9aedb'; ctx.font = '400 17px "Atkinson Hyperlegible", sans-serif';
+    ctx.fillText(`🔭 ${d.explored.length}/${TOTAL_EXPLORE} benda langit dijelajahi`, cx, Y.exp);
+    ctx.fillText(`Skor kuis terbaik: ${d.quizBest || 0}/10` + (d.gameBest ? `   •   Susun orbit tercepat: ${nf(d.gameBest, 1)} dtk` : ''), cx, Y.quiz);
+    const tgl = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    ctx.fillStyle = '#eef1ff'; ctx.font = '400 16px "Atkinson Hyperlegible", sans-serif';
+    ctx.fillText(tgl, cx, canvas.height - 70);
+    ctx.font = '700 16px "Baloo 2", sans-serif'; ctx.fillStyle = '#ff6f59';
+    ctx.fillText('Ayo Keliling Tata Surya', cx, canvas.height - 40);
+  }
+  $('#btnCertMake').addEventListener('click', () => {
+    draw();
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+      dl.href = url; dl.hidden = false;
+      note.textContent = store.data.explored.length < TOTAL_EXPLORE ? 'Jelajahi semua benda langit dulu supaya sertifikatmu makin lengkap!' : 'Sertifikatmu siap diunduh!';
+    });
+  });
 })();
 
 /* ================= INTERAKSI UMUM ================= */
@@ -936,5 +1341,6 @@ $('#btnResetProgress').addEventListener('click', () => {
 });
 
 /* keadaan awal */
+$('#expTotal').textContent = TOTAL_EXPLORE;
 updateHud();
 selectBody('bumi', { focus: false, count: false });

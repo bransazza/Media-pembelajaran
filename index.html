@@ -49,10 +49,12 @@
       <a href="#timbangan">Timbangan</a>
       <a href="#kuis">Kuis</a>
       <a href="#game">Game</a>
+      <a href="#memori">Memori</a>
+      <a href="#sertifikat">Sertifikat</a>
     </nav>
     <div class="hud">
       <span class="hud-item" title="Bintang yang kamu kumpulkan">⭐ <b id="starCount">0</b></span>
-      <span class="hud-item" title="Benda langit yang sudah dijelajahi">🔭 <b id="expCount">0</b>/10</span>
+      <span class="hud-item" title="Benda langit yang sudah dijelajahi">🔭 <b id="expCount">0</b>/<b id="expTotal">10</b></span>
     </div>
     <button id="navToggle" class="icon-btn" aria-label="Buka menu" aria-expanded="false">☰</button>
   </header>
@@ -70,6 +72,7 @@
         <ul class="hero-facts">
           <li><b>1</b> bintang</li>
           <li><b>8</b> planet</li>
+          <li><b>3+</b> benda ekstra</li>
           <li><b>6</b> aktivitas seru</li>
         </ul>
       </div>
@@ -129,6 +132,18 @@
           <div class="flip-f"><span>🌙</span><b>Satelit</b></div>
           <div class="flip-b">Benda yang mengorbit planet. Bulan adalah satelit alami Bumi.</div>
         </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah asteroid"><div class="flip-in">
+          <div class="flip-f"><span>🪨</span><b>Asteroid</b></div>
+          <div class="flip-b">Batuan angkasa yang mengorbit Matahari, kebanyakan berkumpul di sabuk asteroid antara Mars dan Jupiter. Ceres adalah yang terbesar.</div>
+        </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah komet"><div class="flip-in">
+          <div class="flip-f"><span>☄️</span><b>Komet</b></div>
+          <div class="flip-b">"Bola salju kotor" dari es, debu, dan batu. Saat mendekati Matahari, ia memijarkan ekor gas dan debu yang selalu menjauhi Matahari.</div>
+        </div></div>
+        <div class="flip" tabindex="0" role="button" aria-label="Kartu istilah meteoroid, meteor, dan meteorit"><div class="flip-in">
+          <div class="flip-f"><span>💫</span><b>Meteoroid</b></div>
+          <div class="flip-b">Pecahan batu kecil di angkasa. Saat masuk atmosfer dan terbakar disebut meteor (bintang jatuh); jika sampai ke tanah disebut meteorit.</div>
+        </div></div>
       </div>
     </section>
 
@@ -136,7 +151,7 @@
     <section id="jelajah" class="section">
       <div class="sec-head">
         <h2>Jelajahi tata surya</h2>
-        <p>Klik planet untuk terbang mendekat. Geser layar untuk menggeser, scroll atau tombol + / − untuk zoom.</p>
+        <p>Klik planet untuk terbang mendekat. Geser layar untuk menggeser, scroll atau tombol + / − untuk zoom. Ada juga asteroid Ceres, planet katai Pluto, dan Komet Halley yang bisa kamu jelajahi!</p>
       </div>
 
       <div class="explore">
@@ -155,6 +170,8 @@
             <button id="btnZoomOut" class="btn small" aria-label="Perkecil">−</button>
             <button id="btnZoomIn" class="btn small" aria-label="Perbesar">+</button>
             <button id="btnReset" class="btn small accent">🔭 Lihat semua</button>
+            <button id="btnTour" class="btn small accent">🛰️ Mulai tur</button>
+            <button id="btnMeteor" class="btn small accent">🌠 Hujan meteor</button>
           </div>
 
           <div class="sim-wrap">
@@ -276,10 +293,69 @@
         <div id="gameResult" class="result" hidden></div>
       </div>
     </section>
+    <!-- ================= MEMORI (JODOHKAN PLANET & FAKTA) ================= -->
+    <section id="memori" class="section">
+      <div class="sec-head">
+        <h2>Jodohkan planet & faktanya</h2>
+        <p>Ketuk satu planet di kolom kiri, lalu ketuk fakta yang kamu rasa cocok di kolom kanan. Kalau benar, keduanya akan dihubungkan dengan garis!</p>
+      </div>
+      <div class="glass memory" id="memoryBox">
+        <div class="mem-top">
+          <span class="g-stat">✅ <b id="memMatched">0</b>/<b id="memTotal">8</b> cocok</span>
+          <span class="g-stat">❌ <b id="memMiss">0</b> salah</span>
+          <span class="g-stat">⏱ <b id="memTime">0,0</b> detik</span>
+          <span class="g-stat">🏅 Terbaik: <b id="memBest">-</b></span>
+          <span class="spacer"></span>
+          <button id="btnMemReset" class="btn small">🔄 Acak ulang</button>
+        </div>
+        <div class="match-wrap" id="matchWrap">
+          <svg id="matchLines" class="match-lines" aria-hidden="true"></svg>
+          <div class="match-col" id="matchLeft"></div>
+          <div class="match-col" id="matchRight"></div>
+        </div>
+        <div id="memResult" class="result" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= SERTIFIKAT ================= -->
+    <section id="sertifikat" class="section">
+      <div class="sec-head">
+        <h2>Sertifikat astronot</h2>
+        <p>Isi namamu, lalu unduh sertifikat sebagai gambar kenang-kenangan setelah menjelajahi tata surya.</p>
+      </div>
+      <div class="glass cert">
+        <div class="cert-form">
+          <label for="certName">Nama astronot</label>
+          <input type="text" id="certName" maxlength="40" placeholder="Tulis namamu di sini">
+
+          <label>Foto astronot atau foto bersama (opsional)</label>
+          <div class="photobooth">
+            <div class="photobooth-frame">
+              <video id="certVideo" autoplay playsinline muted hidden></video>
+              <img id="certPhotoPreview" alt="Foto astronot" hidden>
+              <span id="photoPlaceholder" class="photobooth-placeholder">🧑‍🚀👩‍🚀👨‍🚀</span>
+            </div>
+            <div class="photobooth-actions">
+              <button id="btnCamOpen" type="button" class="btn small">📸 Buka kamera</button>
+              <button id="btnCamShot" type="button" class="btn small accent" hidden>📷 Ambil foto</button>
+              <button id="btnCamRetake" type="button" class="btn small" hidden>🔄 Ambil ulang</button>
+            </div>
+            <p class="note" id="camNote"></p>
+          </div>
+
+          <button id="btnCertMake" class="btn primary">🎓 Buat sertifikat</button>
+          <p class="note" id="certNote"></p>
+        </div>
+        <div class="cert-preview">
+          <canvas id="certCanvas" width="1000" height="700" aria-label="Pratinjau sertifikat astronot"></canvas>
+          <a id="certDownload" class="btn accent" download="sertifikat-astronot.png" hidden>⬇ Unduh sertifikat</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>Anisha Mutiara @2026</p>
+    <p>Anisha Mutiara (2403723)</p>
     <button id="btnResetProgress" class="link-btn" data-nosfx>Hapus progres dan mulai dari awal</button>
   </footer>
 
